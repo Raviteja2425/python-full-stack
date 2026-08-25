@@ -1,0 +1,123 @@
+day 7 
+Dictionary():
+-->A dictionary stores data as key-value pairs.keys and vaalues are seperated by : ...
+key and value pairs are also called as items and this items are seperated by , ...
+Dict is represented using {}...
+
+Accessing:
+----------
+-->Dict can be access by calling key,we will get value from that key.
+syntax-->dict['key']
+
+get():
+-->get method also used to get the value from that key.
+syntax-->dict.get(key).
+eg:
+data ={'name':'Teja',
+       'balance':8000,
+       'adr':12345678934,
+       'PANC':'TZPS2696H',
+       2:[3,4]}
+
+print(data['name'])
+print(data['balance'])
+print(data['adr'])
+print(data['PANC'])
+print(data.get(2))
+
+update():
+---------
+-->update method is used to update a key,if the key does not exisit in the dict then it add that key:value
+syntax-->dict.update({key:value})
+
+There is an another way to update a key
+syntax-->dict[key]=value.
+eg:
+data = {'name':'teja',
+        'balamce':700000,
+        'adr':1234567890,
+        'panc':'GPXBP2980V',
+        2:[3,4]}
+print(data)
+data['AC']=4587651684618
+
+data.update({'name':'sony'})
+print(data)
+
+Values():
+---------
+-->values() method is used to get all values from the dict.
+syntax-->print(dict.values())
+
+eg:
+data = {'name':'teja',
+        'balamce':700000,
+        'adr':1234567890,
+        'panc':'GPXBP2980V',
+        2:[3,4]}
+print(data.values())
+
+keys():
+--------
+-->keys method is used to retrive all the keys from dict.
+syntax-->print(dict.values())
+
+eg:
+data = {'name':'teja',
+        'balamce':700000,
+        'adr':1234567890,
+        'panc':'GPXBP2980V',
+        2:[3,4]}
+print(data.keys())
+
+items():
+--------
+-->the method will get the key value pair seperately from the dict.
+syntax-->dict.items()
+eg:
+data = {'name':'teja',
+        'balamce':700000,
+        'adr':1234567890,
+        'panc':'GPXBP2980V',
+        2:[3,4]}
+print(data.items())
+
+clear():
+--------
+-->clear method is used remove entire data from a dict.
+syntax-->dict.clear()
+eg:
+data = {'name':'teja',
+        'balamce':700000,
+        'adr':1234567890,
+        'panc':'GPXBP2980V',
+        2:[3,4]}
+print(data)
+data.clear()
+print(data)
+
+del():
+-------
+--> This method is used delete a key-value pair from dict.
+syntax-->del dict.[key]
+
+eg:
+data = {'name':'teja',
+        'balamce':700000,
+        'adr':1234567890,
+        'panc':'GPXBP2980V',
+        2:[3,4]}
+print(data)
+del data['adr']
+print(data)
+
+If statement:
+-------------
+-->If condition become true,then it will execute inside stock of code.
+-->Incase it becomes false,then it will never entry inside blocks.
+
+eg:
+a=90
+b=78
+if a>b:
+    print(a)

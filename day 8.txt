@@ -1,0 +1,181 @@
+day 8
+If statement: 
+------------- 
+-->If condition become true,then it will execute inside stock of code. 
+-->Incase it becomes false,then it will never entry inside blocks. 
+ 
+eg: 
+a=90 
+b=78 
+if a>b: 
+    print(a) 
+ 
+elif: 
+----- 
+-->elif statement is used to check more possible outcomes or more conditions. 
+eg: 
+a=90 
+b=890 
+c=67 
+ 
+if a>b and a>c: 
+    print(a) 
+elif b>a and b>c: 
+    print(b) 
+else: 
+    print(c) 
+ 
+eg: 
+num =7 
+num_2=67 
+user_opt=int(input('Enter \n1.add \n2.sub \n3.mul \n4.pow: ')) 
+if user_opt==1: 
+    print(num+num_2) 
+elif user_opt==2: 
+    print(num-num_2) 
+elif user_opt==3: 
+    print(num*num_2) 
+else:  
+    print(num**num_2) 
+ 
+nested if: 
+---------- 
+--> If inside an if statement is called nested if. 
+eg: 
+app_details={'pin':4500}            
+import random 
+user_pass=int(input("Enter your password: ")) 
+otp=random.randint(1000,9999) 
+if user_pass==app_details['pin']: 
+    print('password is correct') 
+    print(otp) 
+    user_otp=int(input('Enter 4 digit otp: ')) 
+ 
+    if user_otp==otp: 
+        print('Welcome to the app') 
+    else: 
+        print('entered otp is incorrect') 
+         
+else: 
+    print('password is incorrect') 
+ 
+eg: 
+a=int(input('Enter a number: ')) 
+if a % 2==0: 
+    print(f'{a} is even') 
+else: 
+    print(f'{a} is odd') 
+ 
+For loop: 
+---------- 
+-->for loop is used to iterate over a sequence or iterable datatypes. 
+ 
+eg: 
+--- 
+nums=[12,3,4,13] 
+for num in nums: 
+    print(num) 
+ 
+else in for: 
+------------ 
+-->unlike if-else,else block in for statement is executed after completed for all iterations. 
+ 
+eg: 
+--- 
+nums=[12,3,4,13] 
+for num in nums: 
+    print(num) 
+else: 
+    print('for ended') 
+ 
+ 
+break: 
+------ 
+-->the break statement used to stop iteration based on the condition given. 
+eg: 
+--- 
+nums=[1,2,3,4,5] 
+for num in nums: 
+    if num==3:  
+     print(num) 
+     break 
+ 
+continue: 
+--------- 
+-->the continue is keyword is used to skip current iteration based on the condition. 
+ 
+eg: 
+val=[1,2,3,4,5,6,7,8659] 
+for j in val: 
+    if j == 5: 
+       continue 
+    print(j) 
+ 
+pass: 
+----- 
+-->A pass is a spaceholder ,that is used after statements like (if,for,else) not to raise any error. 
+ 
+assert: 
+------- 
+-->assert is a keyword used to check the condition,in case the condition is false ,it will raise the error(AssertionError) 
+eg: 
+age=15 
+assert age >=18,'not eligible to vote' 
+print('Your eligible to vote') 
+ 
+eg: 
+limit_ = int(input("Enter a number: ")) 
+ 
+for i in range(2, limit_ + 1): 
+    count = 0 
+ 
+    for j in range(1, i + 1): 
+        if i % j == 0: 
+            count += 1 
+ 
+    if count == 2: 
+        print(f'{i} is prime') 
+ 
+ 
+ 
+word ='python' 
+empty_str='' 
+for k in word: 
+    empty_str=k+empty_str 
+    print(empty_str) 
+ 
+         
+word ='madam' 
+empty_str='' 
+for k in word: 
+    empty_str=k+empty_str 
+if empty_str ==word: 
+    print(f'{word} is a palindrome') 
+else: 
+    print(f'{word} is not palindrome') 
+ 
+eg: 
+num = int(input('Enter a number:')) 
+length=len(str(num)) 
+amstrong_=0 
+for i in str(num): 
+    amstrong_=amstrong_+int(i)**length 
+    print(amstrong_) 
+if amstrong_==num: 
+    print(f' {num} is amstrong') 
+else: 
+    print(f'{num} is not amstrong') 
+ 
+eg: 
+n = int(input('Enter a number=')) 
+ 
+sum = 0 
+ 
+for i in range(1,n): 
+    if n%i==0: 
+        sum=sum+i 
+if sum == n: 
+    print(f'{n} is a perfect number') 
+else: 
+    print(f'{n} is not a perfect number') 
+this my python practice and i have add this in my linkedin 

@@ -1,0 +1,156 @@
+
+7.Bitwise operator
+------------------
+5---> 0101
+3---> 1100
+1---> 0001
+
+&---> Bitwise and
+------------------
+print(5&#)
+
+|-->Bitwise or
+----------------
+5--->0101
+3--->0011
+7--->0111
+print(5|3)
+
+^--->Bitwise xor
+-----------------
+5-->0101
+3-->0011
+6-->0110
+print(5^3)
+
+>>-->Bitwise Right shift
+------------------------
+5-->0101
+1-->0001
+
+print(5>>2)
+
+<<-->Left shift
+5-->0101
+10-->
+
+input farmating
+---------------
+integet-->int(input())
+----------------------
+a = int(input('Enter a integer: '))
+
+float-->float(input())
+----------------------
+b = float(input('enter any decimal: '))
+print(b + 7)
+
+string-->input()
+-----------------
+a = input('Enter a string: ')
+print(type(a))
+
+list-->list(map(int,(input().split())))
+---------------------------------------
+nums = list(map(int,(input('Enter some numbers: ').split())))
+print(nums)
+
+tuple-->tuple(map(int,(input().split())))
+------------------------------------------
+nums = tuple(map(int,(input('Enter some numbers: ').split())))
+print(nums)
+
+---->
+data_ = eval()
+
+
+
+--->eg
+-------
+name = 'vamsi'
+age = 22
+
+print('my name is',name,'age is',age)
+print('hello!',name)
+
+print(f'my name is {name} and i am {age} years old')
+
+eg--->
+---
+name = 'vamsi'
+age = 23
+
+print('my name is %s and ia am %d years old'%(name,age))
+
+operations:
+-----------
+1.Indexing:
+-->Indexing is used to get char that you looking to access.
+!.Positive indexing
+--------------------
+-->Positive indexing start from 0 index.
+Syntax-->print(variable_name[index_position])
+         print(text[3])
+2.Negitive Indexing
+--------------------
+-->Negitive indexing starts from -1.
+Syntax-->print(variable_name[negitive index_postion])
+         print(text[-3])
+-->Len():
+    len() is a built-in fuction that is used to get number of char present in the string.
+    syntax-->len(variable_name)
+eg:
+text='python is a programming language'
+len(text)
+
+Slicing:
+-->This is used to a particular part from the string.
+Syntax-->Variable_name[start:end]
+eg:text='python is a programming language'
+print(text[12:23])
+print(text[12:])
+print(text[:23])
+print(text[::-2])
+
+txt="madam"
+txt=txt[::-1]
+
+upper():
+-->Used to convert all small char in cap.
+eg:text='python is a programming language'
+   print(text.upper())
+
+lower():
+--------
+-->used to convert all cap into small
+eg:text='python is a programming language'
+   print(text.lower())
+
+index():
+-->used to know the index position of a char.
+syntax-->variable_name.index('substring')
+eg:
+text='python is a programming language'
+print(text.index('l'))
+
+replace():
+----------
+-->used to replace the old substring with new substring.
+syntax--variable_name.replace(old'substring',new'substring')
+eg:
+text='python is a programming language'
+print(text.replace('python','java'))
+
+split():
+-------
+-->this method is used to seperate the string based on the given substring.
+syntax-->
+text='Python is a programming language'
+print(text.split(' '))
+
+Count()
+-------
+-->used to count the number of occurrence of a substring.
+eg:
+text='Python is a programming language'
+print(text.count('p'))

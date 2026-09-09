@@ -1,0 +1,447 @@
+day1:
+
+What is data?
+--------------
+raw facts or figures without context.
+ex:101,name,5000,hyd
+
+what is field?
+--------------
+smallest unit of data in database(column/attribute).
+ex:ename,esalary,eaddress,eid.
+
+what is record?
+---------------
+collection of related fields.
+eg:(101,sunny,57789)
+
+what is database?
+-----------------
+Organized collection of related records.
+
+client server arch:
+-------------------
+client:the role of the client server arch is to send request to the server and to get response from the server.
+
+server:server is a software the role of the server in client-server arch is to take request from the clients.If the 
+request is valid request it it will generate some response and we can handover that response to client.
+If the client request is not a valid request it will raise some error status codes.
+
+protocol:It has a set rules and regulations.the role of the protocol in client server arch is to send request from client to server.
+
+SQL(Structured Query language):
+--------------------------------
+-->Structured Query language is a standardized programming language specaily designed for managing 
+and manipulating relational databases.It provides a declaration syntax that allows users define what 
+data they want to retrive,insert,or delete without specifying exactly how databse should execute these 
+Operation.
+
+SQL commands:
+-------------
+-->DDL: Data Definition Language.
+
+Defines and modifies the structure of data bases objects(tables,indexes)
+
+-->DML:Data manipulation language
+
+Manages transaction to maintain data integrity.
+
+-->DCL: Data Control Language
+
+Manages permissions and accesses control on database objects.
+
+-->TCL: Transaction control language
+
+manages transaction to maintain data integrity.
+
+-->DQL: Data Query language
+
+Used to fetch/retrive data from the database.
+
+How to create table?
+
+CREATE TABLE table-name(
+column-name datatype(size) constraint,
+column-name datatype(size) constraint,
+column-name datatype(size) constraint,
+
+alter
+
+Drop :
+------
+permanently delates an existing database objects(table,database,index,view)Along with its data and structure.
+
+alter:-
+--------
+by using alter command we can modify the existing 
+
+how to rename column name ?
+syntax: alter table table_name change exsiting column name new column name;
+
+
+
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> CREATE DATABASE PFS6;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| pfs6               |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> create table employees(
+    -> empid char(5)
+    -> fname varchar(100)
+    -> lname varchar(100)
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fname varchar(100)
+lname varchar(100)
+show databases' at line 3
+mysql> ^C
+mysql> create table students(
+    -> ^C
+mysql> use pfs6
+Database changed
+mysql> create table students(
+    -> stdid char(5),
+    -> fname varchar(100),
+    -> lname varchar(100),
+    -> age int,
+    -> date int,
+    -> address tinytext,
+    -> dept varchar(20),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 9
+mysql> use pfs6
+Database changed
+mysql> create table students(
+    -> fname varchar(100),
+    -> lname varchar(100),
+    -> stdid char(5),^C
+mysql> use pfs6;
+Database changed
+mysql> create table students(
+    -> stdid char(5),
+    -> fname varchar(100),
+    -> lname varchar(100),
+    -> age int,
+    -> dob int,
+    -> address tinytext,
+    -> dept varchar(20)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc students;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| stdid   | char(5)      | YES  |     | NULL    |       |
+| fname   | varchar(100) | YES  |     | NULL    |       |
+| lname   | varchar(100) | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| dob     | int          | YES  |     | NULL    |       |
+| address | tinytext     | YES  |     | NULL    |       |
+| dept    | varchar(20)  | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> show columns of students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of students' at line 1
+mysql> show columns from students;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| stdid   | char(5)      | YES  |     | NULL    |       |
+| fname   | varchar(100) | YES  |     | NULL    |       |
+| lname   | varchar(100) | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| dob     | int          | YES  |     | NULL    |       |
+| address | tinytext     | YES  |     | NULL    |       |
+| dept    | varchar(20)  | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table students modify fname varchar(70);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| stdid   | char(5)      | YES  |     | NULL    |       |
+| fname   | varchar(70)  | YES  |     | NULL    |       |
+| lname   | varchar(100) | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| dob     | int          | YES  |     | NULL    |       |
+| address | tinytext     | YES  |     | NULL    |       |
+| dept    | varchar(20)  | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table students modify lname varchar(200);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| stdid   | char(5)      | YES  |     | NULL    |       |
+| fname   | varchar(70)  | YES  |     | NULL    |       |
+| lname   | varchar(200) | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| dob     | int          | YES  |     | NULL    |       |
+| address | tinytext     | YES  |     | NULL    |       |
+| dept    | varchar(20)  | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table students add location tinytext;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students
+    -> ^C
+mysql> desc students;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| stdid    | char(5)      | YES  |     | NULL    |       |
+| fname    | varchar(70)  | YES  |     | NULL    |       |
+| lname    | varchar(200) | YES  |     | NULL    |       |
+| age      | int          | YES  |     | NULL    |       |
+| dob      | int          | YES  |     | NULL    |       |
+| address  | tinytext     | YES  |     | NULL    |       |
+| dept     | varchar(20)  | YES  |     | NULL    |       |
+| location | tinytext     | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table students add adharid int after lname;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| stdid    | char(5)      | YES  |     | NULL    |       |
+| fname    | varchar(70)  | YES  |     | NULL    |       |
+| lname    | varchar(200) | YES  |     | NULL    |       |
+| adharid  | int          | YES  |     | NULL    |       |
+| age      | int          | YES  |     | NULL    |       |
+| dob      | int          | YES  |     | NULL    |       |
+| address  | tinytext     | YES  |     | NULL    |       |
+| dept     | varchar(20)  | YES  |     | NULL    |       |
+| location | tinytext     | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> alter table students change fname firstname varchar(200);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table students change lname lastname varchar(200);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| stdid     | char(5)      | YES  |     | NULL    |       |
+| firstname | varchar(200) | YES  |     | NULL    |       |
+| lastname  | varchar(200) | YES  |     | NULL    |       |
+| adharid   | int          | YES  |     | NULL    |       |
+| age       | int          | YES  |     | NULL    |       |
+| dob       | int          | YES  |     | NULL    |       |
+| address   | tinytext     | YES  |     | NULL    |       |
+| dept      | varchar(20)  | YES  |     | NULL    |       |
+| location  | tinytext     | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> use pfs6;
+Database changed
+mysql> create table teachers_staff(
+    -> teacher_id int;\
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> ^C
+mysql> use pfs6;
+Database changed
+mysql> create table teachers_staff(
+    -> teacher_id int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> use pfs6;
+Database changed
+mysql> create table teachers_staff (
+    -> emp_id int,
+    -> age tinyint,
+    -> experience smallint,
+    -> gender char(1),
+    -> emp_name varchar(50),
+    -> address tiny_text,
+    -> salary decimal(10,2),
+    -> department enum('hod','staff'),
+    -> subjects set('python','sql','aptitude','softskills')
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tiny_text,
+salary decimal(10,2),
+department enum('hod','staff'),
+subjects set('p' at line 7
+mysql> use pfs6;
+Database changed
+mysql> create table teachers_staff (
+    -> emp_id int,
+    -> age tinyint,
+    -> experience smallint,
+    -> gender char(1),
+    -> emp_name varchar(50),
+    -> address tiny_text,
+    -> salary decimal(10,2
+    -> ^C
+mysql> use pfs6;
+Database changed
+mysql> create table teachers_staff (
+    -> emp_id int,
+    -> age tinyint,
+    -> experience smallint,
+    -> gender char(1),
+    -> emp_name varchar(50),
+    -> address tinytext,
+    -> salary decimal(10,2),
+    -> department enum('hod','staff'),
+    -> subjects set('python','sql','aptitude','softskills')
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table teacher_staff add column email;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table teacher_staff add column email varchar(200) ;
+ERROR 1146 (42S02): Table 'pfs6.teacher_staff' doesn't exist
+mysql> alter table teachers_staff add column email varchar(200) ;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table teachers_staff add column phone number int ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'number int' at line 1
+mysql> alter table teachers_staff add column phone_number int ;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table teachers_staff add column bonus decimal(10,2) after salary ;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table teachers_staff add column status after department ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'after department' at line 1
+mysql> alter table teachers_staff add column status enum('hod','staff') after department ;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table teachers_staff add column company_name varchar(50) before emp_id ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'before emp_id' at line 1
+mysql> alter table teachers_staff add column company_name varchar(50) first ;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table teachers_staff add column qualification varchar(50) after emp_name ;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter emp_name varchar(100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp_name varchar(100)' at line 1
+mysql> alter table teachers_staff emp_name varchar(100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp_name varchar(100)' at line 1
+mysql> alter table teachers_staff modify emp_name varchar(100);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table teachers_staff modify salary decimal(10,0);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table teachers_staff change emp_name employee_name varchar(100);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc teachers_staff;
++---------------+---------------------------------------------+------+-----+---------+-------+
+| Field         | Type                                        | Null | Key | Default | Extra |
++---------------+---------------------------------------------+------+-----+---------+-------+
+| company_name  | varchar(50)                                 | YES  |     | NULL    |       |
+| emp_id        | int                                         | YES  |     | NULL    |       |
+| age           | tinyint                                     | YES  |     | NULL    |       |
+| experience    | smallint                                    | YES  |     | NULL    |       |
+| gender        | char(1)                                     | YES  |     | NULL    |       |
+| employee_name | varchar(100)                                | YES  |     | NULL    |       |
+| qualification | varchar(50)                                 | YES  |     | NULL    |       |
+| address       | tinytext                                    | YES  |     | NULL    |       |
+| salary        | decimal(10,0)                               | YES  |     | NULL    |       |
+| bonus         | decimal(10,2)                               | YES  |     | NULL    |       |
+| department    | enum('hod','staff')                         | YES  |     | NULL    |       |
+| status        | enum('hod','staff')                         | YES  |     | NULL    |       |
+| subjects      | set('python','sql','aptitude','softskills') | YES  |     | NULL    |       |
+| email         | varchar(200)                                | YES  |     | NULL    |       |
+| phone_number  | int                                         | YES  |     | NULL    |       |
++---------------+---------------------------------------------+------+-----+---------+-------+
+15 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

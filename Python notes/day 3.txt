@@ -1,0 +1,91 @@
+ 
+concatination: 
+-------------- 
+-->The + will behave  two ways for numerics it works normally 
+Such as for other datatypes like string,list,tuple it place the values side by side. 
+ 
+Operators 
+---------- 
+-->The operators are used to perform operations in variqables and the values. 
+1.Arthematic operators 
++,-,*,/,//,% 
+eg: 
+Addition 
+num=90 
+num_2=9 
+print(num+num_2) 
+ 
+Sub 
+num=90 
+num_2=9 
+print(num-num_2) 
+ 
+Multiply 
+num=90 
+num_2=9 
+print(num*num_2) 
+ 
+Division 
+num=90 
+num_2=9 
+print(num/num_2) 
+ 
+2.Assignment operators: 
+------------------------ 
+-->=,+=,-=,*=,/= 
+eg: 
++= 
+n=9 
+n +=24 
+print(n) 
+ 
+-= 
+n=9 
+n -=24 
+print(n) 
+ 
+*= 
+n=9 
+n *=24 
+print(n) 
+ 
+/= 
+n=25 
+n /=5 
+print(n) 
+ 
+//= 
+n=268.5 
+n //=5 
+print(n) 
+ 
+3.comparison operators 
+----------------------- 
+--> ==, >=,<=,<,>,!= 
+a=24 
+b=25 
+print(a==b) 
+print(a!=b) 
+print(a<b) 
+print(a>b) 
+ 
+4.Logical operators 
+-------------------- 
+and --> 
+or--> 
+not--> 
+5.identify operators: 
+--------------------- 
+is 
+is not 
+eg: 
+a=[1,2] 
+b=[1,2] 
+print(id(a)) 
+print(id(b)) 
+print(a is b) 
+print(a is not b) 
+6.Membership Operator 
+--------------------- 
+ 
+7.Bitwise Operators 

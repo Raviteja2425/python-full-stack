@@ -1,0 +1,138 @@
+day 6 
+
+Tuple: 
+------- 
+-->Tuple is collection of different data types that seperated by,and represented by () 
+-->immutable. 
+--> We can pass a tuple of values that can be asign to the variables,but should match same number of variables and values insidethe tuple. 
+eg:t=(1,'python',[3,4],(7,9)) 
+ 
+indexing: 
+-->If items is not present in the tuple,it will raise ValueError. 
+ 
+eg: 
+-- 
+t=(1,'python',[3,4],(7,9)) 
+print(t.index('python')) 
+ 
+len() 
+ 
+max() 
+----- 
+-->used to find out highest value from the tuple. 
+eg 
+so=(67,34,53) 
+print(max(so)) 
+ 
+min() 
+----- 
+-->used to find out least value from the tuple. 
+eg: 
+so=(67,34,53) 
+print(min(so)) 
+ 
+count() 
+------- 
+-->used to count an item present in tuple. 
+eg 
+-- 
+so=(67,54,453,4342,45,3) 
+print(so.count(5)) 
+ 
+sets: 
+----- 
+ 
+ 
+union(): 
+-------- 
+-->The union() will combine two sets into a single set. 
+And wew use | this symbol. 
+Syntax-->set_1.union(set_2) or (set_1 | set_2) 
+eg: 
+data = {1,2,3,4} 
+nums={5,6} 
+print(data.union(nums)) 
+print(data | nums) 
+ 
+intersection(): 
+--------------- 
+-->This will give us the common elements from both sets. 
+we can use & symbol. 
+syntax-->set_1.intersection(set_2) or (set_1 & set_2) 
+eg: 
+data = {1,2,3,4} 
+nums={4,5,6} 
+print(data.intersection(nums)) 
+print(data & nums) 
+ 
+difference(): 
+------------- 
+-->It will display different elements from set_1,but not from the other set. 
+we can use - symbol. 
+syntax-->set_1.difference(set_2) or set_1 - set_2 
+eg: 
+--- 
+data = {1,2,3,4} 
+nums={4,5,6} 
+print(data.difference(nums)) 
+print(data - nums) 
+ 
+symmetric_difference(): 
+------------------------ 
+-->Different elements from the both sets. 
+we can use ^ symbol. 
+syntax-->set_1.symmetric_difference(set_2) or set_1 ^ set_2 
+ 
+add(): 
+------ 
+-->add method will add only one element at a time. 
+syntax-->set_1.add(value) 
+eg: 
+data = {1,2,3,4} 
+data.add(7) 
+print(data) 
+ 
+update(): 
+--------- 
+-->we can add more than one element by using update method. 
+syntax-->set_1.unpdate([values]) or set_1,update(set_2) 
+eg: 
+data = {1,2,3,4} 
+nums={4,5,6} 
+data.update([8,7]) 
+print(data) 
+data.update(nums) 
+print(data) 
+ 
+remove(): 
+--------- 
+-->Remove() method will delete the given value from the set.if the element does not exist then it will give error. 
+syntax-->set.remove(value) 
+eg: 
+data = {1,2,3,4} 
+nums={4,5,6} 
+data.remove(3) 
+print(data) 
+ 
+Discard(): 
+---------- 
+-->Discard() method is used to del the elemnt from the set ,but never raise any error if the element does not exist in the set. 
+syntax-->set.discard(value) 
+eg: 
+data = {1,2,3,4} 
+nums={4,5,6} 
+data.discard(8) 
+print(data) 
+data.discard(2) 
+print(data) 
+ 
+clear(): 
+-------- 
+-->The method is used to delete all the values and it will return empty set. 
+syntax-->set.clear() 
+eg: 
+data = {1,2,3,4} 
+print(data) 
+data.clear() 
+print(data) 
+ this is my day 6 i need to add this in linkedin

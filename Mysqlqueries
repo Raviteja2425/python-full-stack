@@ -1,1 +1,93 @@
+-- MySQL Foreign Key Practice
+-- Topics: PRIMARY KEY, FOREIGN KEY, ON UPDATE CASCADE,
+-- ON DELETE CASCADE, ON UPDATE SET NULL, and ON DELETE SET NULL.
 
+-- Select the database where the tables will be created.
+USE pfs6;
+
+-- ============================================================
+-- Example 1: Products and Orders (CASCADE)
+-- ============================================================
+
+CREATE TABLE products (
+    PR_ID INT PRIMARY KEY,
+    PR_NAME VARCHAR(100),
+    Price DECIMAL(10, 2)
+);
+
+CREATE TABLE orders (
+    ORDER_ID INT PRIMARY KEY,
+    CUSTOMER_NAME VARCHAR(50),
+    PR_ID INT,
+    QUANTITY INT,
+    CONSTRAINT fk_orders_products
+        FOREIGN KEY (PR_ID)
+        REFERENCES products(PR_ID)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+INSERT INTO products (PR_ID, PR_NAME, Price)
+VALUES
+    (1, 'Laptop', 50000.00),
+    (2, 'Mouse', 800.00);
+
+INSERT INTO orders (ORDER_ID, CUSTOMER_NAME, PR_ID, QUANTITY)
+VALUES
+    (101, 'Asha', 1, 1),
+    (102, 'Ravi', 1, 2);
+
+-- View the initial data.
+SELECT * FROM products;
+SELECT * FROM orders;
+
+-- The product ID change is automatically reflected in orders.
+UPDATE products
+SET PR_ID = 10
+WHERE PR_ID = 1;
+
+SELECT * FROM orders;
+
+-- ============================================================
+-- Example 2: Departments and Doctors (SET NULL)
+-- ============================================================
+
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(100)
+);
+
+CREATE TABLE doctors (
+    doctor_id INT PRIMARY KEY,
+    doctor_name VARCHAR(100),
+    specialization VARCHAR(100),
+    department_id INT NULL,
+    CONSTRAINT fk_doctors_departments
+        FOREIGN KEY (department_id)
+        REFERENCES departments(department_id)
+        ON UPDATE SET NULL
+        ON DELETE SET NULL
+);
+
+INSERT INTO departments (department_id, department_name)
+VALUES
+    (1, 'Cardiology'),
+    (2, 'Neurology');
+
+INSERT INTO doctors (doctor_id, doctor_name, specialization, department_id)
+VALUES
+    (101, 'Dr. Anil', 'Cardiologist', 1),
+    (102, 'Dr. Priya', 'Neurologist', 2);
+
+-- Deleting Cardiology sets Dr. Anil's department_id to NULL.
+DELETE FROM departments
+WHERE department_id = 1;
+
+SELECT * FROM doctors;
+
+-- Updating Neurology's ID sets Dr. Priya's department_id to NULL.
+UPDATE departments
+SET department_id = 20
+WHERE department_id = 2;
+
+SELECT * FROM doctors;

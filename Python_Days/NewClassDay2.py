@@ -37,5 +37,48 @@ print(len(temp))
 temperature,pressure=map(float,input("Enter the values:").split(','))
 print("Temperature is",temperature)
 print("Pressure is",pressure)
+
+
+a,b=13,4.5
+print(a,b,end=' ')
+print("Codegnan is in vizag",end='\t')
+
+
+
+a,b=map(int,input("Enter your number: ").split(','))
+addition=a+b
+subtraction=a-b
+multiply=a*b
+divide=a/b
+
+print("------------------>CALCULATOR<--------------------")
+print()
+print("Addition result is :",addition)
+print("Subtraction result is :",subtraction)
+print("Multiply result is :",multiply)
+print("Division result is :",divide)
+print()
 """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
